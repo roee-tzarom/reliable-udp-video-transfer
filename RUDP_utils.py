@@ -6,7 +6,7 @@ import struct
 # I = 4 bytes Unsigned Integer (Acknowledgment Number)
 # c = 1 byte character (Flag: 'S' for SYN, 'A' for ACK, 'D' for DATA, 'F' for FIN)
 # H = 2 bytes Unsigned Short (Length of the payload)
-MY_RUDP_HEADER_FORMAT = '!IICH'
+MY_RUDP_HEADER_FORMAT = '!IIcH'
 HEADER_SIZE = struct.calcsize(MY_RUDP_HEADER_FORMAT)
 
 

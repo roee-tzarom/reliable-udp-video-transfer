@@ -112,3 +112,20 @@ class RUDPClient:
 
     def close(self):
         self.my_rudp_socket.close()
+
+
+if __name__ == "__main__":
+    print("Starting RUDP Client Test...")
+    client = RUDPClient()
+
+    # מנסים להתחבר לשרת שלנו
+    connected = client.connect("127.0.0.1", 2122)
+
+    if connected:
+        # מדמים בקשה ששירה תעשה מחר דרך ה-DASH
+        print("\n--- Requesting Video Chunk ---")
+        downloaded_data = client.fetch_dash_chunk("http://127.0.0.1:8080/video_720p.mp4")
+
+        print(f"\nSUCCESS! Downloaded a total of {len(downloaded_data)} bytes.")
+
+    client.close()
